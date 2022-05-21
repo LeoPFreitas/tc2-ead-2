@@ -12,7 +12,7 @@ import {ProductService} from "../../service/product.service";
 export class DashboardComponent implements OnInit {
 
   productDetails !: FormGroup;
-  product: Product = {_id: '', title: '', price: 0, description: ''};
+  product: Product = {_id: '', titulo: '', preco: 0, descricao: ''};
   productList: Product[] = [];
 
   constructor(private formBuilder: FormBuilder, private service: ProductService, private notificationService: NotificationService) {
@@ -30,9 +30,9 @@ export class DashboardComponent implements OnInit {
   }
 
   addProduct() {
-    this.product.title = this.productDetails.value.title
-    this.product.description = this.productDetails.value.description
-    this.product.price = this.productDetails.value.price
+    this.product.titulo = this.productDetails.value.title
+    this.product.descricao = this.productDetails.value.description
+    this.product.preco = this.productDetails.value.price
 
     this.service.addProduct(this.product).subscribe(res => {
       this.getProducts();
@@ -64,16 +64,16 @@ export class DashboardComponent implements OnInit {
 
   editProduct(product: Product) {
     this.productDetails.controls['id'].setValue(product._id)
-    this.productDetails.controls['title'].setValue(product.title)
-    this.productDetails.controls['description'].setValue(product.description)
-    this.productDetails.controls['price'].setValue(product.price)
+    this.productDetails.controls['title'].setValue(product.titulo)
+    this.productDetails.controls['description'].setValue(product.descricao)
+    this.productDetails.controls['price'].setValue(product.preco)
   }
 
   updateProduct() {
     this.product._id = this.productDetails.value.id
-    this.product.title = this.productDetails.value.title
-    this.product.description = this.productDetails.value.description
-    this.product.price = this.productDetails.value.price
+    this.product.titulo = this.productDetails.value.title
+    this.product.descricao = this.productDetails.value.description
+    this.product.preco = this.productDetails.value.price
 
     this.service.updateProduct(this.product).subscribe(res => {
       this.getProducts()

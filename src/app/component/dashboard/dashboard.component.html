@@ -26,9 +26,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let product of productList">
-      <td>{{product.title}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.description}}</td>
+      <td>{{product.titulo}}</td>
+      <td>{{product.preco}}</td>
+      <td>{{product.descricao}}</td>
       <td>
         <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editProduct"
                 (click)="editProduct(product)">Edit

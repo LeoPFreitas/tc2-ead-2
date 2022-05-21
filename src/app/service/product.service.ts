@@ -11,7 +11,7 @@ export class ProductService {
   baseUrl: string = '';
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'https://banco-dados-teste.glitch.me/api/produtos'
+    this.baseUrl = 'https://leonardo-pereira-freitas-sc3007405.glitch.me/api/produtos'
   }
 
   addProduct(product: Product): Observable<Product> {
